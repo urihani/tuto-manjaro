@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Manjaro IUT</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="logiciels.html">Logiciels tiers</a></li>
+            <li><a href="astuces.html">Astuces</a></li>
+        </ul>
+    </nav>
+
+    <div class="mainWrap">
+    <h1>Tuto Manjaro</h1>
+
+    <h2>Introduction</h2>
+    <p>Ce tutoriel vous permettra d'installer et paramétrer Manjaro. Il est destiné aux utilisateurs de Windows 10 qui souhaiteraient utiliser Manjaro dans le cadre de leurs études à l'IUT. Je vous conseille cette version de linux car elle est abordable mais puissante mais surtout en rolling release.
+    </p>
+
+    <h2>Installer Virtualbox</h2>
+    <p>La première chose à faire est d'installer Virtualbox. Pour cela, téléchargez le en cliquant ici : <a href="https://download.virtualbox.org/virtualbox/6.1.16/VirtualBox-6.1.16-140961-Win.exe">"VirtualBox"</a> et suivre les indications jusqu'à l'installation complète de VirtualBox.</p>
+
+    <h2>Installer Manjaro</h2>
+    <p>Téléchargez Manjaro KDE en cliquant ici : <a href="https://osdn.net/projects/manjaro/storage/kde/20.1.2/manjaro-kde-20.1.2-201019-linux58.iso">"Manjaro"</a> et laisser l'ISO tel quel dans le dossier téléchargements.</p> 
+    <p>Lancez ensuite VirtualBox : </p>
+
+    <figure class="capture"><img src="images/1-manjaro-install/m-install01.png" alt="#" width="950" height="544"><figcaption>Vous ne devriez voir que la section Tools chez vous.</figcaption></figure>
+
+    <h3>Create Virtual Machine</h3>
+    <p>Cliquez sur Tools puis New pour créer une machine virtuelle. Vous devriez voir ceci : </p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install02.png" alt="#" width="950" height="575"></div>
+    <ul>
+        <li>Name : Entrez le nom que vous souhaitez donner à la machine</li>
+        <li>Machine Folder : Choisissez le dossier où vous allez placer vos machines virtuelles, ici j'ai crée un dossier "Virtual Boxes" situé dans Documents</li>
+        <li>Type : Linux</li>
+        <li>Version : Arch Linux (64 bit)</li>
+        <li>Memory size : Ici je vous conseille un minimum de 2048, vous pouvez aller plus haut si vous avez plus de RAM (tant que vous restez dans le vert!)</li>
+        <li>Cocher Create a virtual disk now</li>
+    </ul>
+
+    <h3>Create Virtual Disk</h3>
+    <p>Sur cette fenêtre, vérifiez que l'emplacement du fichier est celui que vous souhaitez et allouez de l'espace disque pour Manjaro. Ici j'ai mit 60 GO ce qui est confortable pour travailler mais cela dépend de la place que vous avez sur votre disque. <br>
+    Sous "storage on physical hard disk" cocher "Dynamically allocated".</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install03.png" alt="#" width="950" height="576"></div>
+
+    <h3>Settings</h3>
+    <p>Nous allons faire quelques réglages supplémentaires dans cette fenêtre. Cliquez sur Advanced : </p>
+
+    <h4>System - Processor</h4>
+    <p>Dans cet onglet vous pouvez assigner le nombre de coeurs que vous voulez. N'abusez pas et restez dans les limites de ce que votre machine est capable de supporter. Minimum recommandé => 2 CPU</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install05.png" alt="#"width="950" height="641"></div>
+
+    <h4>System - Display</h4>
+    <p>Dans l'onglet Screen augmentez un peu l'allocation de la mémoire vidéo et mettez l'option VBoxVGA.</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install06.png" alt="#" width="950" height="567"></div>
+
+    <h4>Shared Folders</h4>
+    <p>Dans Shared Folders, cliquez sur l'icône + si vous voulez partager votre dossier pour les cours entre Linux et Windows. Ici, j'ai nommé le dossier DUT-S1 et j'ai placé tous les dossiers pour les matières dedans. Bien penser à cocher "Auto-mount" et valider.
+    <br>
+    Ne pas faire attention à l'alerte invalid settings. Cela est dû à l'option VBoxVGA mais elle est indispensable pour éviter des problèmes de resizing d'écran.
+    </p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install07.png" alt="#" width="950" height="571"></div>
+
+    <h4>Storage</h4>
+    <p>Nous allons monter l'ISO téléchargé précédemment pour pouvoir booter et lancer l'installation. Sélectionnez l'emplacement sous Controller : IDE et cliquez sur le petit disque bleu pour charger l'ISO.</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install08.png" alt="#" width="950" height="508"></div>
+    <p>C'est tout pour les réglages concernant la machine virtuelle!</p>
+
+    <h3>Premier démarrage</h3>
+    <p>Sortir du menu Settings et sélectionner votre machine virtuelle ici nommée "TutoManjaro". <br>
+    Cliquez sur Start et une fois démarré, cliquez sur Launch Installer. <br>
+    Vous devriez arriver sur l'écran d'installation : </p>
+    <figure class="capture"><img src="images/1-manjaro-install/m-install09.png" alt="#" width="950" height="534"><figcaption>Choisissez la langue du système</figcaption></figure>
+    
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install10.png" alt="#"><figcaption>Choisissez la Timezone</figcaption></figure>
+    
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install11.png" alt="#"><figcaption>Choisissez la disposition du clavier</figcaption></figure>
+
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install12.png" alt="#"><figcaption>Cochez erase disk</figcaption></figure>
+
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install13.png" alt="#"><figcaption>Choisissez votre nom d'utilisateur, du pc et votre mot de passe</figcaption></figure>
+
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install14.png" alt="#"><figcaption>Choisissez la suite bureautique (petite préférence pour FreeOffice)</figcaption></figure>
+
+    <p>Finissez l'installation mais ne redémarrez pas car vous devez éjecter l'ISO qui vous a servi tout à l'heure.</p>
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install15.png" alt="#"><figcaption>Retournez dans Settings pour éjecter l'ISO</figcaption></figure>
+    <p>Une fois que vous avez éjecté l'ISO, vous pouvez démarrer Manjaro en cliquant sur Start.</p>
+
+    <h2>Mise à jour</h2>
+    <p>La première chose à faire après l'installation est de mettre à jour.</p>
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install17.png" alt="#"><figcaption>Cliquez sur Add/Remove Software dans le menu démarrer</figcaption></figure>
+    <p>Allez dans l'onglet Updates et cliquez sur Apply</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install18.png" alt="#"></div>
+    <p>Patientez et redémarrez.</p>
+
+    <h2>Installer les Guest Additions</h2>
+    <p>Installer ceci vous facilitera la vie pour tout un tas de raisons comme la copie de fichiers entre linux et windows, l'affichage graphique ou encore les dossiers partagés.</p>
+    <p>Mettez à jour les packages installés sur le système en tapant la commande</p>
+    <code>sudo pacman -Syu</code>
+    <p>Quand la mise à jour est finie, redémarrez la machine</p>
+    <code>sudo reboot</code>
+    <p>Tapez cette commande pour voir la version du Kernel</p>
+    <code>mhwd-kernel -li</code>
+    <p>Installez la version correspondante du kernel (<strong>58</strong> dans mon cas)</p>
+    <code>sudo pacman -S linux<strong>58</strong>-headers</code>
+    <p>Installer make et gcc</p>
+    <code>sudo pacman -S gcc make</code>
+    <p>Redémarrer</p>
+    <code>reboot</code>
+    <p>En bas de l'écran vous avez accès au menu de VirtualBox. Cliquez sur Devices puis sur Insert Guest Additions CD Image.</p>
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install19.png" alt="#"><figcaption>Passez votre souris sur VBox_GAs_6.1.16 et cliquez sur mount</figcaption></figure>
+    <p>Se positionner dans le répertoire des guest additions (remplacer <strong>toto</strong> par votre nom d'utilisateur)</p>
+    <code>cd /run/media/<strong>toto</strong>/VBox_GAs_6.1.16</code>
+    <p>Lancer l'installation</p>
+    <code>sudo ./VBoxLinuxAdditions.run</code>
+    <p>Eteindre la machine virtuelle et rentrer dans les Settings. Aller dans General-Advanced</p>
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install04.png" alt="#"><figcaption>Grâce à ces options, vous pourrez copier et coller des fichiers entre linux et windows</figcaption></figure>
+    <ul>
+        <li>Shared Clipboard : Bidirectional</li>
+        <li>Drag'n'Drop : Bidirectional</li>
+    </ul>
+
+    <h2>Dossier partagé </h2>
+    <p>Votre dossier partagé se trouve dans /media/ <br>
+    Le problème qui se pose lors d'un premier démarrage est que vous ne pourrez pas accéder à votre dossier. Pour résoudre cela, appuyez sur F12 pour lancer un terminal et tapper la commande suivante : </p>
+    <code>sudo usermod -aG vboxsf $USER</code> 
+    <p>Redémarrez, lancez Dolphin et allez dans root/media/ et vous pourrez cette fois accéder à votre dossier.</p>
+    <figure class="capture"><caption><img src="images/2-shared-folder/shared-folder.png" alt="#"><figcaption>Cliquez droit sur votre dossier et choisissez Add to places pour avoir un accès rapide à ce dossier</figcaption></figure>
+
+    <h2>Transfert de fichiers par Dolphin</h2>
+    <p>Ouvrez Dolphin et cliquez sur Network puis Add Network Folder</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install20.png" alt="#"></div>
+    <p>Rentrez les informations comme mentionnées sur la capture et se connecter. Vous pouvez choisir remember password pour éviter de le retaper à chaque fois.</p>
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install21.png" alt="#"><figcaption>Le répertoire racine de transit</figcaption></figure>
+    <p>Avec la même procédure vous pouvez créer une autre connexion cette fois ci vers votre home directory.</p>
+    <figure class="capture"><caption><img src="images/1-manjaro-install/m-install22.png" alt="#"><figcaption>Votre home directory</figcaption></figure>
+    <p>Vous pouvez retrouver ces dossiers dans Network et en faisant un clic droit dessus + Add to Places, vous les retrouverez en accès rapide.</p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install23.png" alt="#"></div>
+
+    <h2>ADA</h2>
+    <p>Entrez cette commande pour installer le compilateur ADA : </p>
+    <code>sudo pacman -S gcc-ada</code>
+    <p>Pour pouvoir compiler vos programmes, il faut télécharger les packages p_esiut sur chamilo sur la page "Ada à distance" <br>
+    Sauvegardez les dans Downloads pour pouvoir les retrouver et les copier facilement.</p>
+    <p>Tapez ensuite ces 2 commandes en remplaçant <strong>toto</strong> par votre nom d'utilisateur : </p>
+    <code>sudo cp /home/<strong>toto</strong>/Downloads/p_esiut.adb /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/adainclude/</code> <br>
+    <code>sudo cp /home/<strong>toto</strong>/Downloads/p_esiut.ads /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/adainclude/</code>
+
+    <h2>Créer des alias</h2>
+    <p>Pour créer un alias, une des solutions possibles est d'aller dans votre home directory. Faites Alt + . (alt et point) puis ouvrez le fichier caché .bashrc . Vous pourrez mettre vos alias à la fin du fichier par exemple. Tapez ensuite cette commande pour voir les effets immédiatement : </p>
+    <code>source .bashrc</code> 
+
+    <h2>Problème de mise en veille</h2>
+    <p>Je ne sais pas si vous rencontrerez ce problème mais à chaque fois que le pc host se met en veille, cela empêche de se logger. Une solution provisoire pour remédier à ça est de désactiver le Screen Locking dans System Settings -> Workspace Behavior -> Screen Locking comme dans la capture ci dessous : </p>
+    <div class="capture"><img src="images/1-manjaro-install/m-install24.png" alt="#">
+    </div>
+
+    <footer>
+        <pre>@Julien Morelle</pre>
+    </footer>
+</body>
+</html>
